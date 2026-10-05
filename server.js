@@ -1,11 +1,15 @@
 const express = require('express');
+const path = require('path');
 
 const app = express();
 
+// Saari static files (index.html, style.css, script.js) ko serve karo
+app.use(express.static(__dirname));
+
 app.get('/', (req, res) => {
-    res.send('Hello from Node.js + Express!');
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(3000, () => {
-    console.log('Server running on port 3000');
+    console.log('Velora Restaurant running on port 3000');
 });
