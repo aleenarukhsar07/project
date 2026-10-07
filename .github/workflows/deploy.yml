@@ -18,5 +18,5 @@ jobs:
             git reset --hard origin/main
             docker rm -f project-app || true
             docker build --no-cache -t project-app .
-            docker run -d -p 80:3000 --restart always --name project-app project-app
+            docker run -d -p 3000:3000 --restart always --name project-app project-app
             echo "Deployed: $(cat index.html | grep -o 'VELORA.*' | head -1)"
